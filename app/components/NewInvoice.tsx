@@ -11,6 +11,7 @@ const NewInvoice = () => {
     product_qty: 0,
   });
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [msg, setMsg] = useState("");
   const [invoice, setInvoice] = useState<Invoice>({
     customerName: "",
     customerEmail: "",
@@ -45,13 +46,13 @@ const NewInvoice = () => {
 
   const action = () => {
     if (localStorage.getItem('invoices')) {
-      let oldData: Invoice[] = JSON.parse(localStorage.getItem('invoices') || "");
-      let updateData = [...oldData, invoice];
-      let stringifyIt = JSON.stringify(updateData);
+      const oldData: Invoice[] = JSON.parse(localStorage.getItem('invoices') || "");
+      const updateData = [...oldData, invoice];
+      const stringifyIt = JSON.stringify(updateData);
       localStorage.setItem("invoices", stringifyIt)
     } else {
-      let dataArray = [invoice];
-      let info = JSON.stringify(dataArray);
+      const dataArray = [invoice];
+      const info = JSON.stringify(dataArray);
       localStorage.setItem('invoices', info);
     }
 
@@ -59,12 +60,13 @@ const NewInvoice = () => {
       customerEmail: "", customerName: "", customerPhone: "", products: [], totalPrice: 0
     })
     setProducts([]);
-    alert('Data Saved Successfully!')
+    setMsg('Invoice Saved Successfully!')
   };
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center px-2 md:px-10">
       <div className="w-full md:w-1/2 px-2 md:px-10">
+        <p className="text-center text-gray-200 text-sm">{msg}</p>
         <Form action={action}>
           <Input
             label="Customer Name"
