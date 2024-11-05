@@ -51,12 +51,12 @@ const Invoices = () => {
                 </tbody>
             </table>
             </div>
-            <div id='productsdata' className='w-1/2 bg-gray-800 rounded-md backdrop:bg-[#0707078c]' popover='manual' >
+            <div id='productsdata' className='w-[90vw] md:w-1/2 bg-gray-800 rounded-md backdrop:bg-[#0707078c]' popover='manual' >
                 <button className='absolute right-10 border rounded-full w-8 h-8 bg-transparent  text-white text-xl' popoverTarget='productsdata' popoverTargetAction='hide' title='Close'>x</button>
-                <div className='px-10 py-5 flex flex-col '>
+                <div className='px-2 md:px-10 py-5 flex flex-col '>
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-2xl font-semibold text-white py-5'>Products: {singleInvoice?.products.length}</h1>
-                        <h1 className='text-2xl font-semibold text-white py-5'>Total: {singleInvoice?.totalPrice}</h1>
+                        <h1 className='text-xl md:text-2xl font-semibold text-white py-5'>Products: {singleInvoice?.products.length}</h1>
+                        <h1 className='text-xl md:text-2xl font-semibold text-white py-5'>Total: {singleInvoice?.totalPrice}</h1>
                     </div>
                     <table>
                         <thead>
