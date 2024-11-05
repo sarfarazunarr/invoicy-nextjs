@@ -8,8 +8,8 @@ const Invoices = () => {
     const [singleInvoice, setSingleinvoice] = useState<Invoice>()
     useEffect(() => {
         if (localStorage.getItem('invoices')) {
-            let data = localStorage.getItem('invoices');
-            let finaldata = JSON.parse(data || "");
+            const data = localStorage.getItem('invoices');
+            const finaldata = JSON.parse(data || "");
             setInvoices(finaldata);
         }
     }, [])
